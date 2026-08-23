@@ -37,11 +37,11 @@ export default function Projects() {
               <div key={project.id} className="bg-[#11111c]/60 border border-purple-900/30 rounded-2xl overflow-hidden flex flex-col group hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(192,132,252,0.15)] transition-all duration-500">
                 
                 {/* Project Image Box */}
-                <div className="w-full aspect-video relative bg-[#08080c] p-4 sm:p-6 lg:p-8 flex items-center justify-center border-b border-purple-900/30">
+                <div className="w-full aspect-video relative bg-[#08080c] border-b border-purple-900/30">
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#11111c] z-10 opacity-80 pointer-events-none"></div>
                   
                   {project.image ? (
-                    <div className="relative w-full h-full rounded-xl overflow-hidden border border-purple-500/20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-0 transform transition-all duration-700 group-hover:scale-105 group-hover:border-purple-500/50">
+                    <div className="absolute top-4 left-4 right-4 bottom-4 sm:top-6 sm:left-6 sm:right-6 sm:bottom-6 lg:top-8 lg:left-8 lg:right-8 lg:bottom-8 rounded-xl overflow-hidden border border-purple-500/20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-0 transform transition-all duration-700 group-hover:scale-105 group-hover:border-purple-500/50">
                       <div className="absolute inset-0 bg-purple-900/10 mix-blend-overlay z-10"></div>
                       <img 
                         src={project.image} 
