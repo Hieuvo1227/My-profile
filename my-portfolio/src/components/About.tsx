@@ -82,7 +82,7 @@ export default function About() {
               <div className="absolute inset-2 border-2 border-purple-500/50 rounded-full animate-[spin_10s_linear_infinite]"></div>
               <div className="absolute inset-4 border border-fuchsia-500/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-[#151521] shadow-[0_0_30px_rgba(192,132,252,0.3)] relative z-10 p-2 bg-[#0b0b14]">
-                <img src="/about-illustration.jpg" alt="Developer Avatar" className="w-full h-full object-cover rounded-full relative z-10" />
+                <img src="/about-illustration-simple.jpg" alt="Developer Avatar" className="w-full h-full object-cover rounded-full relative z-10" />
               </div>
             </div>
           </div>
