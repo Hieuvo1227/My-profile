@@ -37,16 +37,20 @@ export default function Projects() {
               <div key={project.id} className="bg-[#11111c]/60 border border-purple-900/30 rounded-2xl overflow-hidden flex flex-col group hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(192,132,252,0.15)] transition-all duration-500">
                 
                 {/* Project Image Box */}
-                <div className="w-full aspect-video relative overflow-hidden bg-[#08080f]">
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#11111c] via-transparent to-transparent z-10 opacity-60"></div>
+                <div className="w-full aspect-video relative bg-[#08080c] p-4 sm:p-6 lg:p-8 flex items-center justify-center border-b border-purple-900/30">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#11111c] z-10 opacity-80 pointer-events-none"></div>
+                  
                   {project.image ? (
-                    <img 
-                      src={project.image} 
-                      alt={tData(`${project.key}.title`)}
-                      className="w-full h-full object-cover object-top transform transition-transform duration-700 group-hover:scale-105"
-                    />
+                    <div className="relative w-full h-full rounded-xl overflow-hidden border border-purple-500/20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-0 transform transition-all duration-700 group-hover:scale-105 group-hover:border-purple-500/50">
+                      <div className="absolute inset-0 bg-purple-900/10 mix-blend-overlay z-10"></div>
+                      <img 
+                        src={project.image} 
+                        alt={tData(`${project.key}.title`)}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
                   ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center text-purple-900/30">
+                    <div className="w-full h-full flex flex-col items-center justify-center text-purple-900/30 z-0">
                       <svg className="w-20 h-20 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
