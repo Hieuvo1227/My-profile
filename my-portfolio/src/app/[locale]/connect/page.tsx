@@ -5,11 +5,35 @@ import { useTranslations } from 'next-intl';
 export default function ConnectPage() {
   const t = useTranslations('Connect');
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Cảm ơn bạn đã liên hệ! Tính năng gửi email đang được phát triển.");
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Dùng chung API contact
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error(error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -70,6 +94,16 @@ export default function ConnectPage() {
           <div className="flex-[1.5] bg-[#11111c] p-8 md:p-10 rounded-2xl border border-slate-800 relative overflow-hidden group">
             <div className="absolute -top-32 -right-32 w-64 h-64 bg-purple-600 rounded-full blur-[100px] opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
             
+            {submitStatus === 'success' && (
+              <div className="absolute inset-0 bg-[#11111c]/90 backdrop-blur-sm z-20 flex flex-col items-center justify-center text-center p-6 animate-in fade-in duration-500">
+                <div className="w-16 h-16 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mb-4 border border-green-500/50">
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                <p className="text-slate-300">Thank you for reaching out. I'll get back to you soon.</p>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -77,9 +111,10 @@ export default function ConnectPage() {
                     type="text" 
                     id="name" 
                     required
+                    disabled={isSubmitting}
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full bg-[#0b0b14] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
+                    className="w-full bg-[#0b0b14] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors disabled:opacity-50"
                     placeholder={t('namePlaceholder')}
                   />
                 </div>
@@ -88,9 +123,10 @@ export default function ConnectPage() {
                     type="email" 
                     id="email" 
                     required
+                    disabled={isSubmitting}
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full bg-[#0b0b14] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors"
+                    className="w-full bg-[#0b0b14] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors disabled:opacity-50"
                     placeholder={t('emailPlaceholder')}
                   />
                 </div>
@@ -100,18 +136,34 @@ export default function ConnectPage() {
                   id="message" 
                   rows={5} 
                   required
+                  disabled={isSubmitting}
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  className="w-full bg-[#0b0b14] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors resize-none"
+                  className="w-full bg-[#0b0b14] border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors resize-none disabled:opacity-50"
                   placeholder={t('messagePlaceholder')}
                 ></textarea>
               </div>
+
+              {submitStatus === 'error' && (
+                <p className="text-rose-500 text-sm font-medium">Failed to send message. Please try again.</p>
+              )}
+
               <button 
                 type="submit"
-                className="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-4 rounded-lg shadow-[0_0_20px_rgba(147,51,234,0.3)] hover:shadow-[0_0_25px_rgba(192,132,252,0.5)] transition-all duration-300 flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                className="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-4 rounded-lg shadow-[0_0_20px_rgba(147,51,234,0.3)] hover:shadow-[0_0_25px_rgba(192,132,252,0.5)] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                {t('send')}
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    {t('send')}
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                  </>
+                )}
               </button>
             </form>
           </div>
