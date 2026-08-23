@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0b0b14;
+    color: #e2e8f0; /* slate-200 */
+    /* Tạo background vũ trụ tĩnh với các chấm nhỏ (stars) */
+    background-image: 
+      radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
+      radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
+      radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px),
+      radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 3px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  }
+}
+
+/* Utilities cho animation gõ chữ (Typewriter) */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #c084fc; /* purple-400 */ }
+}
+
+.typewriter-text {
+  border-right: 3px solid #c084fc;
+  animation: blink-caret .75s step-end infinite;
+}
