@@ -14,13 +14,13 @@ export const projectsData: Project[] = [
     techStack: ["NestJS", "Next.js", "Docker", "ESP32", "MQTT"],
     githubLink: "https://github.com/Hieuvo1227/-n-IoT.git",
     liveLink: "#",
-    image: "/SAMS.png"
+    image: "/SAMS2.png"
   },
   {
     id: 2,
     key: "edu",
     techStack: ["Next.js 15", "Express", "Redis", "IIS", "PM2"],
-    githubLink: "", 
+    githubLink: "",
     liveLink: "#",
     image: "/thuytung.png"
   }

@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 
 export default function Footer() {
   const t = useTranslations('Footer');
+  const tCommon = useTranslations('Common');
 
   return (
     <footer className="bg-[#05050a] border-t border-purple-900/30 py-10 relative overflow-hidden">
@@ -12,7 +13,7 @@ export default function Footer() {
         
         <div className="mb-6 md:mb-0 text-center md:text-left">
           <p className="text-slate-400 font-light">
-            {t('designed')} <span className="text-purple-400 font-medium">Võ Hiếu</span>
+            {t('designed')} <span className="text-purple-400 font-medium">{tCommon('name')}</span>
           </p>
           <p className="text-slate-500 text-sm mt-1">{t('copyright')}</p>
         </div>
