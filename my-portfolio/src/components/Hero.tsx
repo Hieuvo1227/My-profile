@@ -77,8 +77,8 @@ export default function Hero() {
 
           {/* Hero Image / Illustration */}
           <div className="flex-1 w-full max-w-lg lg:max-w-none relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-            <div className="relative aspect-square rounded-full border-2 border-purple-500/30 overflow-hidden shadow-[0_0_30px_rgba(192,132,252,0.2)]">
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+            <div className="relative aspect-square rounded-2xl border-2 border-purple-500/30 overflow-hidden shadow-[0_0_30px_rgba(192,132,252,0.2)]">
               <img 
                 src="/hero-illustration.jpg" 
                 alt="Developer Workspace" 
