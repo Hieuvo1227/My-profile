@@ -6,8 +6,12 @@ import {
   VSCodeIcon, DockerIcon, VercelIcon, GradleIcon, IntelliJIcon,
   DataGripIcon, GitIcon, PostmanIcon, ViteIcon, AWSIcon, LinuxIcon
 } from './Icons';
+import { useTranslations } from 'next-intl';
 
 export default function About() {
+  const t = useTranslations('About');
+  const tCommon = useTranslations('Common');
+
   const skills = [
     { name: "Spring Boot", icon: <SpringBootIcon /> },
     { name: "Next.js", icon: <NextjsIcon /> },
@@ -42,42 +46,52 @@ export default function About() {
 
   return (
     <section id="about" className="py-24 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-fuchsia-900/10 rounded-full blur-3xl -z-10"></div>
+      
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Know Who <span className="text-purple-400">I'M</span>
+            {t('title')} <span className="text-purple-400">{t('titleHighlight')}</span>
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-fuchsia-500 mx-auto rounded-full"></div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-12 items-center mb-20">
-          <div className="flex-1 text-slate-300 text-lg leading-relaxed space-y-6">
+        {/* Bio Section */}
+        <div className="flex flex-col md:flex-row items-center gap-12 mb-24">
+          <div className="flex-1">
             <div className="mb-6">
-              <h3 className="text-3xl font-semibold text-white mb-2">Hello there! <span className="animate-pulse inline-block">👋</span></h3>
-              <p className="text-xl">I'm <span className="text-purple-400 font-bold text-2xl">Võ Hiếu</span></p>
+              <h3 className="text-3xl font-semibold text-white mb-2">{t('greeting')}</h3>
+              <p className="text-xl">{t('im')} <span className="text-purple-400 font-bold text-2xl">{tCommon('name')}</span></p>
             </div>
             <div className="space-y-4">
               <p className="text-slate-300 text-lg leading-relaxed">
-              I am a Software Developer with a strong passion for building high-quality, scalable web applications and innovative software solutions. I enjoy continuous learning and applying technical knowledge to solve real-world problems.
+                {t('bio1')}
               </p>
-              <p className="text-slate-300 text-lg leading-relaxed"> I have actively participated in and led several development projects, including smart access management systems and modern education platforms.
+              <p className="text-slate-300 text-lg leading-relaxed">
+                {t('bio2')}
               </p>
             </div>
           </div>
           
           <div className="flex-1 flex justify-center">
-             <div className="relative w-72 h-72 rounded-full p-2 border-2 border-purple-500/30 shadow-[0_0_50px_rgba(192,132,252,0.15)] group hover:border-purple-500 transition-all duration-500">
-                <div className="absolute inset-0 bg-purple-600 blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity rounded-full"></div>
+            <div className="relative w-64 h-64 md:w-80 md:h-80 group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-purple-600 to-fuchsia-600 rounded-full blur-[40px] opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
+              <div className="absolute inset-2 border-2 border-purple-500/50 rounded-full animate-[spin_10s_linear_infinite]"></div>
+              <div className="absolute inset-4 border border-fuchsia-500/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+              <div className="w-full h-full rounded-full overflow-hidden border-4 border-[#151521] shadow-[0_0_30px_rgba(192,132,252,0.3)] relative z-10 p-2 bg-[#0b0b14]">
                 <img src="/about-illustration.jpg" alt="Developer Avatar" className="w-full h-full object-cover rounded-full relative z-10" />
-             </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Skills Section */}
         <div className="mb-24">
           <h3 className="text-4xl font-bold text-center text-white mb-16">
-            Professional <span className="text-purple-400">Skillset</span>
+            {t('skillset')} <span className="text-purple-400">{t('skillsetHighlight')}</span>
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-6 justify-items-center max-w-5xl mx-auto">
             {skills.map((skill, index) => (
@@ -97,7 +111,7 @@ export default function About() {
         {/* Tools Section */}
         <div>
           <h3 className="text-4xl font-bold text-center text-white mb-16">
-            <span className="text-purple-400">Tools</span> I use
+            <span className="text-purple-400">{t('tools')}</span> {t('toolsHighlight')}
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-6 justify-items-center max-w-5xl mx-auto">
             {tools.map((tool, index) => (

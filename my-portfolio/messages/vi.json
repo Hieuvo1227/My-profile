@@ -1,0 +1,76 @@
+{
+  "Common": {
+    "name": "Võ Hiếu",
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "projects": "Dự án",
+    "resume": "Hồ sơ",
+    "connect": "Liên hệ"
+  },
+  "Hero": {
+    "greeting": "Xin chào, tôi là",
+    "role": "Software Developer",
+    "tagline": "Xây dựng các ứng dụng web mở rộng với Next.js, Node.js & IoT.",
+    "viewWork": "Xem Dự Án",
+    "contactMe": "Liên Hệ Ngay"
+  },
+  "About": {
+    "title": "Giới thiệu",
+    "titleHighlight": "BẢN THÂN",
+    "greeting": "Xin chào! 👋",
+    "im": "Tôi là",
+    "bio1": "Tôi là một Kỹ sư phần mềm (Software Developer) với niềm đam mê mãnh liệt trong việc xây dựng các ứng dụng web chất lượng cao, có khả năng mở rộng và các giải pháp phần mềm đổi mới. Tôi luôn thích không ngừng học hỏi và áp dụng kiến thức kỹ thuật để giải quyết các vấn đề thực tế.",
+    "bio2": "Tôi đã tích cực tham gia và dẫn dắt một số dự án phát triển, bao gồm hệ thống quản lý truy cập thông minh và nền tảng giáo dục hiện đại.",
+    "skillset": "Kỹ năng",
+    "skillsetHighlight": "Chuyên môn",
+    "tools": "Công cụ",
+    "toolsHighlight": "Sử dụng"
+  },
+  "Projects": {
+    "title": "Các dự án",
+    "titleHighlight": "Gần đây",
+    "description": "Dưới đây là một số dự án tiêu biểu mà tôi đã thực hiện.",
+    "github": "Mã nguồn",
+    "demo": "Bản thử nghiệm"
+  },
+  "Resume": {
+    "title": "Hồ sơ",
+    "titleHighlight": "Cá nhân",
+    "description": "Tóm tắt về kinh nghiệm làm việc, học vấn và kỹ năng chuyên môn của tôi.",
+    "download": "Tải CV"
+  },
+  "Connect": {
+    "title": "Hãy giữ",
+    "titleHighlight": "Liên lạc",
+    "description": "Bạn có ý tưởng dự án, đang tìm kiếm một lập trình viên, hay chỉ đơn giản là muốn trò chuyện? Đừng ngần ngại gửi tin nhắn cho tôi nhé!",
+    "namePlaceholder": "Tên của bạn",
+    "emailPlaceholder": "Email của bạn",
+    "messagePlaceholder": "Tin nhắn",
+    "send": "Gửi tin nhắn",
+    "findMe": "Kết nối với tôi trên"
+  },
+  "Footer": {
+    "designed": "Thiết kế và Phát triển bởi",
+    "copyright": "Bản quyền © 2026"
+  },
+  "ProjectData": {
+    "sams": {
+      "title": "Smart Access Management System (SAMS)",
+      "description": "Nền tảng kiểm soát ra vào cấp doanh nghiệp tích hợp Công cụ Đánh giá Rủi ro Động. Tối ưu hóa cơ sở dữ liệu và bộ nhớ đệm (caching) để đạt tốc độ quyết định truy cập dưới 50ms.",
+      "features": {
+        "0": "Tích hợp phần cứng với ESP32 & RFID-RC522",
+        "1": "Giám sát theo thời gian thực qua Socket.io",
+        "2": "Phân quyền nhiều cấp độ (RBAC) & Tự động sao lưu"
+      }
+    },
+    "edu": {
+      "title": "THỦY TÙNG - Nền tảng Giáo dục",
+      "description": "Nền tảng giáo dục du học có tính sẵn sàng cao. Xây dựng kiến trúc quản lý phiên bản và bộ nhớ đệm dữ liệu mạnh mẽ để xử lý lượng truy cập lớn một cách mượt mà.",
+      "features": {
+        "0": "Server-Side Rendering (SSR) tối ưu SEO",
+        "1": "Tích hợp Redis giúp truy xuất bộ nhớ đệm nhanh chóng",
+        "2": "Triển khai trên Windows Server qua IIS và PM2"
+      }
+    }
+  }
+}

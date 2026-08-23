@@ -1,6 +1,9 @@
 import React from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function ResumePage() {
+  const t = useTranslations('Resume');
+
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -9,10 +12,10 @@ export default function ResumePage() {
         <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
           <div className="w-full md:flex-1">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
-              My <span className="text-purple-400">Resume</span>
+              {t('title')} <span className="text-purple-400">{t('titleHighlight')}</span>
             </h2>
             <p className="text-slate-400 text-lg">
-              A summary of my professional experience, education, and technical skills.
+              {t('description')}
             </p>
           </div>
           <a 
@@ -22,7 +25,7 @@ export default function ResumePage() {
             className="shrink-0 bg-purple-600/20 text-purple-400 border border-purple-500/50 hover:bg-purple-600 hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center gap-2 group shadow-[0_0_15px_rgba(147,51,234,0.2)] hover:shadow-[0_0_20px_rgba(147,51,234,0.4)]"
           >
             <svg className="w-5 h-5 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-            Download CV
+            {t('download')}
           </a>
         </div>
 

@@ -1,87 +1,107 @@
 import React from 'react';
 import { projectsData } from '../lib/data';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { useTranslations } from 'next-intl';
 
 export default function Projects() {
+  const t = useTranslations('Projects');
+  const tData = useTranslations('ProjectData');
+
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-24 relative overflow-hidden">
+      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl -z-10"></div>
+      
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16">
-          My Recent <span className="text-purple-400">Works</span>
-        </h2>
-        
-        {/* CSS Grid cho Projects: 1 cột mobile, 2 cột md, 3 cột lg (nếu nhiều) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-          {projectsData.map((project) => (
-            <div 
-              key={project.id} 
-              className="group bg-[#11111c] rounded-xl p-8 flex flex-col h-full border border-slate-800 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(192,132,252,0.15)] transition-all duration-500 relative overflow-hidden"
-            >
-              {/* Ánh sáng hắt nhẹ trên góc card khi hover */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-purple-600 rounded-full blur-[80px] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
-              
-              {/* Image Frame */}
-              {project.image && (
-                <div className="w-full aspect-[16/9] rounded-lg overflow-hidden mb-6 relative border border-purple-900/30 group-hover:border-purple-500/50 transition-colors z-10 bg-[#08080f] shrink-0">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-purple-900/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            {t('title')} <span className="text-purple-400">{t('titleHighlight')}</span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-fuchsia-500 mx-auto rounded-full mb-6"></div>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            {t('description')}
+          </p>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {projectsData.map((project) => {
+            const features = [
+              tData(`${project.key}.features.0`),
+              tData(`${project.key}.features.1`),
+              tData(`${project.key}.features.2`)
+            ];
+            
+            return (
+              <div key={project.id} className="bg-[#11111c]/60 border border-purple-900/30 rounded-2xl overflow-hidden flex flex-col group hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(192,132,252,0.15)] transition-all duration-500">
+                
+                {/* Project Image Box */}
+                <div className="w-full aspect-video relative overflow-hidden bg-[#08080f]">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#11111c] via-transparent to-transparent z-10 opacity-60"></div>
+                  {project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={tData(`${project.key}.title`)}
+                      className="w-full h-full object-cover object-top transform transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center text-purple-900/30">
+                      <svg className="w-20 h-20 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <span className="font-mono text-sm tracking-widest">NO IMAGE AVALIABLE</span>
+                    </div>
+                  )}
+                  
+                  {/* Overlay Action Buttons */}
+                  <div className="absolute inset-0 bg-purple-900/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex items-center justify-center gap-4">
+                    {project.githubLink && (
+                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="bg-[#0b0b14] p-3 rounded-full hover:text-purple-400 hover:scale-110 transition-all shadow-lg" title={t('github')}>
+                        <FaGithub className="w-6 h-6" />
+                      </a>
+                    )}
+                    {project.liveLink !== "#" && (
+                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="bg-[#0b0b14] p-3 rounded-full hover:text-purple-400 hover:scale-110 transition-all shadow-lg" title={t('demo')}>
+                        <FaExternalLinkAlt className="w-5 h-5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              )}
 
-              <h3 className="text-2xl font-bold text-slate-100 mb-3 z-10">{project.title}</h3>
-              <p className="text-slate-400 text-base mb-6 z-10">{project.description}</p>
-              
-              {/* Features */}
-              <ul className="mb-6 z-10 space-y-2 flex-grow">
-                {project.features?.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-gray-300 text-sm">
-                    <svg className="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              {/* Tech Stack Badges */}
-              <div className="flex flex-wrap gap-2 mb-8 z-10 mt-auto">
-                {project.techStack.map((tech, index) => (
-                  <span 
-                    key={index} 
-                    className="bg-purple-900/30 border border-purple-700/50 text-purple-300 text-xs font-semibold px-3 py-1.5 rounded-md"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+                {/* Project Details */}
+                <div className="p-8 flex flex-col flex-grow">
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors">
+                    {tData(`${project.key}.title`)}
+                  </h3>
+                  
+                  <p className="text-slate-300 mb-6 leading-relaxed flex-grow">
+                    {tData(`${project.key}.description`)}
+                  </p>
+                  
+                  <div className="mb-6">
+                    <ul className="space-y-2">
+                      {features.map((feature, i) => (
+                        <li key={i} className="flex items-start text-slate-400 text-sm">
+                          <svg className="w-5 h-5 text-purple-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-              {/* Links */}
-              <div className="flex gap-6 z-10">
-                {project.githubLink && (
-                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-300 hover:text-purple-400 font-medium transition-colors group">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" /></svg>
-                    <span className="relative">
-                      View GitHub
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 shadow-[0_0_8px_#c084fc] transition-all duration-300 group-hover:w-full"></span>
-                    </span>
-                  </a>
-                )}
-                {project.liveLink && project.liveLink !== "#" && (
-                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-300 hover:text-purple-400 font-medium transition-colors group">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    <span className="relative">
-                      Live Demo
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 shadow-[0_0_8px_#c084fc] transition-all duration-300 group-hover:w-full"></span>
-                    </span>
-                  </a>
-                )}
+                  {/* Tech Stack Tags */}
+                  <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-purple-900/30">
+                    {project.techStack.map((tech, i) => (
+                      <span key={i} className="px-3 py-1 text-xs font-medium text-purple-300 bg-purple-900/20 border border-purple-800/30 rounded-full">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
