@@ -13,7 +13,7 @@ export const projectsData: Project[] = [
   {
     id: 1,
     title: "Smart Access Management System (SAMS)",
-    description: "Enterprise-grade IoT access control platform featuring a Dynamic Risk Engine. Optimized database indexing and in-memory caching to achieve sub-50ms access decision times.",
+    description: "Enterprise-grade access control platform featuring a Dynamic Risk Engine. Optimized database indexing and in-memory caching to achieve sub-50ms access decision times.",
     features: [
       "Hardware integration with ESP32 & RFID-RC522",
       "Real-time monitoring via Socket.io",

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 
 export default function Hero() {
-  const fullText = "Full-Stack Web Developer";
+  const fullText = "Software Developer";
   const [text, setText] = useState("");
   
   useEffect(() => {

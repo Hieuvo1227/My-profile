@@ -57,12 +57,13 @@ export default function About() {
               <h3 className="text-3xl font-semibold text-white mb-2">Hello there! <span className="animate-pulse inline-block">👋</span></h3>
               <p className="text-xl">I'm <span className="text-purple-400 font-bold text-2xl">Võ Hiếu</span></p>
             </div>
-            <p>
-              I am a Full-Stack Web & IoT Developer with a strong passion for building software solutions that bridge the gap between hardware and the web. I enjoy continuous learning and applying technical knowledge to real-world projects.
-            </p>
-            <p>
-              I have actively participated in and led several development projects, including smart access management systems and modern education platforms.
-            </p>
+            <div className="space-y-4">
+              <p className="text-slate-300 text-lg leading-relaxed">
+              I am a Software Developer with a strong passion for building high-quality, scalable web applications and innovative software solutions. I enjoy continuous learning and applying technical knowledge to solve real-world problems.
+              </p>
+              <p className="text-slate-300 text-lg leading-relaxed"> I have actively participated in and led several development projects, including smart access management systems and modern education platforms.
+              </p>
+            </div>
           </div>
           
           <div className="flex-1 flex justify-center">
