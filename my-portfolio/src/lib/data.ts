@@ -23,5 +23,13 @@ export const projectsData: Project[] = [
     githubLink: "",
     liveLink: "#",
     image: "/thuytung.png"
+  },
+  {
+    id: 3,
+    key: "videoai",
+    techStack: ["Python", "OpenCV", "AI", "FFmpeg"],
+    githubLink: "https://github.com/Hieuvo1227/Edit-video-by-AI.git",
+    liveLink: "#",
+    image: "/Edit.png"
   }
 ];

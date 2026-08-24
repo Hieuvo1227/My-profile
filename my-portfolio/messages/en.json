@@ -71,6 +71,15 @@
         "1": "Redis integration for fast session caching",
         "2": "Deployed on Windows Server via IIS and PM2"
       }
+    },
+    "videoai": {
+      "title": "AI Video Editing System",
+      "description": "An automated system for cutting and editing videos using artificial intelligence.",
+      "features": {
+        "0": "Automated video cutting",
+        "1": "AI-powered scene detection",
+        "2": "Fast video processing with FFmpeg"
+      }
     }
   }
 }

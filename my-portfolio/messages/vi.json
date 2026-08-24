@@ -71,6 +71,15 @@
         "1": "Tích hợp Redis giúp truy xuất bộ nhớ đệm nhanh chóng",
         "2": "Triển khai trên Windows Server qua IIS và PM2"
       }
+    },
+    "videoai": {
+      "title": "Hệ thống Cắt Video bằng AI",
+      "description": "Hệ thống tự động cắt và chỉnh sửa video sử dụng trí tuệ nhân tạo.",
+      "features": {
+        "0": "Cắt video tự động",
+        "1": "Phát hiện cảnh quay bằng AI",
+        "2": "Xử lý video nhanh chóng bằng FFmpeg"
+      }
     }
   }
 }
