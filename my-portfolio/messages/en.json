@@ -1,6 +1,6 @@
 {
   "Common": {
-    "name": "Havi",
+    "name": "Hieu Vo",
     "home": "Home",
     "about": "About",
     "projects": "Projects",
@@ -8,41 +8,41 @@
     "connect": "Connect"
   },
   "Hero": {
-    "greeting": "Hi, I am",
+    "greeting": "Hey there, I'm",
     "role": "Software Developer",
-    "tagline": "Building scalable web apps with Next.js, Node.js & IoT.",
+    "tagline": "I build scalable web applications with Next.js, Node.js & IoT.",
     "viewWork": "View My Work",
-    "contactMe": "Contact Me"
+    "contactMe": "Get in Touch"
   },
   "About": {
-    "title": "Know Who",
-    "titleHighlight": "I'M",
-    "greeting": "Hello there! 👋",
+    "title": "Who",
+    "titleHighlight": "I Am",
+    "greeting": "Hello! 👋",
     "im": "I'm",
-    "bio1": "I am a Software Developer with a strong passion for building high-quality, scalable web applications and innovative software solutions. I enjoy continuous learning and applying technical knowledge to solve real-world problems.",
-    "bio2": "I have actively participated in and led several development projects, including smart access management systems and modern education platforms.",
+    "bio1": "A Software Developer with a genuine passion for crafting high-quality, scalable web applications and creative software solutions. I thrive on continuous learning and love turning technical knowledge into real-world impact.",
+    "bio2": "I've led and contributed to several development projects—from smart access management systems to modern education platforms—always with a focus on clean architecture and great user experience.",
     "skillset": "Professional",
     "skillsetHighlight": "Skillset",
     "tools": "Tools",
-    "toolsHighlight": "I use"
+    "toolsHighlight": "I Use"
   },
   "Projects": {
     "title": "My Recent",
-    "titleHighlight": "Works",
-    "description": "Here are a few projects I've worked on recently.",
+    "titleHighlight": "Work",
+    "description": "A selection of projects I've built and shipped.",
     "github": "GitHub",
-    "demo": "Demo"
+    "demo": "Live Demo"
   },
   "Resume": {
     "title": "My",
     "titleHighlight": "Resume",
-    "description": "A summary of my professional experience, education, and technical skills.",
+    "description": "A snapshot of my experience, education, and technical skills.",
     "download": "Download CV"
   },
   "Connect": {
     "title": "Get in",
     "titleHighlight": "Touch",
-    "description": "Have a project in mind, looking for a developer, or just want to say hi? Feel free to send me a message!",
+    "description": "Have a project in mind, looking for a developer, or just want to say hi? I'd love to hear from you — drop me a message!",
     "namePlaceholder": "Your Name",
     "emailPlaceholder": "Your Email",
     "messagePlaceholder": "Your Message",
@@ -50,35 +50,35 @@
     "findMe": "Find me on"
   },
   "Footer": {
-    "designed": "Designed and Developed by",
+    "designed": "Designed & built by",
     "copyright": "Copyright © 2026"
   },
   "ProjectData": {
     "sams": {
       "title": "Smart Access Management System (SAMS)",
-      "description": "Enterprise-grade access control platform featuring a Dynamic Risk Engine. Optimized database indexing and in-memory caching to achieve sub-50ms access decision times.",
+      "description": "An enterprise-grade access control platform powered by a Dynamic Risk Engine. Heavily optimized with database indexing and in-memory caching to deliver sub-50ms access decisions at scale.",
       "features": {
         "0": "Hardware integration with ESP32 & RFID-RC522",
         "1": "Real-time monitoring via Socket.io",
-        "2": "Multi-level RBAC & Automated backup scripts"
+        "2": "Multi-level RBAC & automated backup scripts"
       }
     },
     "edu": {
-      "title": "THỦY TÙNG - Education Website",
-      "description": "High-availability overseas education platform. Architected with robust session management and data caching to handle concurrent user traffic seamlessly.",
+      "title": "THỦY TÙNG — Study Abroad Education Platform",
+      "description": "A high-availability overseas education platform built for heavy concurrent traffic. Features robust session management and multi-layer data caching to ensure a seamless user experience.",
       "features": {
-        "0": "Server-Side Rendering (SSR) for optimal SEO",
-        "1": "Redis integration for fast session caching",
-        "2": "Deployed on Windows Server via IIS and PM2"
+        "0": "Server-Side Rendering (SSR) for top-tier SEO",
+        "1": "Redis-powered session & data caching",
+        "2": "Deployed on Windows Server via IIS & PM2"
       }
     },
     "videoai": {
       "title": "AI Video Editing System",
-      "description": "An automated system for cutting and editing videos using artificial intelligence.",
+      "description": "An automated pipeline that uses artificial intelligence to cut, analyse, and edit video content with minimal human input.",
       "features": {
-        "0": "Automated video cutting",
-        "1": "AI-powered scene detection",
-        "2": "Fast video processing with FFmpeg"
+        "0": "AI-driven automated video cutting",
+        "1": "Intelligent scene detection",
+        "2": "High-speed video processing with FFmpeg"
       }
     }
   }

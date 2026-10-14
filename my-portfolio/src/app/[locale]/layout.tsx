@@ -28,8 +28,8 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
-      <body className="antialiased flex flex-col min-h-screen bg-[#08080f] text-slate-200">
+    <html lang={locale} suppressHydrationWarning>
+      <body className="antialiased flex flex-col min-h-screen bg-[#08080f] text-slate-200" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           <main className="flex-grow">
