@@ -1,112 +1,164 @@
+"use client";
 import React from 'react';
 import { projectsData } from '../lib/data';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
+import RetroCard from './RetroCard';
 
 export default function Projects() {
   const t = useTranslations('Projects');
   const tData = useTranslations('ProjectData');
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
-      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl -z-10"></div>
+    <section className="py-10 md:py-16 relative overflow-hidden">
       
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Decorative Crosshairs & Badges */}
+      <div className="absolute top-12 left-1/4 crosshair-mark hidden md:block">+</div>
+      <div className="absolute top-20 right-8 text-right font-mono text-[10px] text-slate-500 tracking-widest leading-relaxed select-none hidden lg:block">
+        BUILD<br />LEARN<br />EXPLORE<br />REPEAT
+      </div>
+      <div className="absolute top-96 left-6 font-mono text-[10px] text-slate-500 tracking-widest leading-relaxed select-none hidden lg:block">
+        IDEAS<br />INTO<br />REAL<br />THINGS
+      </div>
+      <div className="absolute bottom-20 right-8 text-right font-mono text-[10px] text-slate-500 tracking-widest leading-relaxed select-none hidden lg:block">
+        CODE<br />PLAY<br />READ<br />GROW
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t('title')} <span className="text-purple-400">{t('titleHighlight')}</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-fuchsia-500 mx-auto rounded-full mb-6"></div>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            {t('description')}
-          </p>
+        {/* Header with Title and Right Coder Graphic */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
+          <div>
+            <span className="text-terminal-green font-mono text-sm tracking-wider mb-2 block">
+              // PROJECTS
+            </span>
+            <h1 className="font-pixel text-3xl sm:text-5xl text-white tracking-wider leading-tight mb-3">
+              MY RECENT WORK
+            </h1>
+            <p className="font-mono text-slate-400 text-sm sm:text-base">
+              {t('description')}
+            </p>
+          </div>
+
+          {/* Right Coder Graphic with Seamless Blend & Twinkle */}
+          <div className="hidden md:block shrink-0 relative">
+            <div className="absolute -top-2 left-2 text-terminal-green text-xs star-twinkle-1 select-none pointer-events-none">✦</div>
+            <div className="absolute top-4 right-0 text-white text-[10px] star-twinkle-3 select-none pointer-events-none">★</div>
+            
+            <div className="animate-float-gentle">
+              <img
+                src="/projects-pixel-coder.png"
+                alt="Pixel Coder"
+                className="h-28 lg:h-32 w-auto object-contain drop-shadow-[0_0_20px_rgba(34,197,94,0.15)]"
+                style={{ imageRendering: 'pixelated' }}
+              />
+            </div>
+          </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        {/* Project Cards List */}
+        <div className="space-y-8">
           {projectsData.map((project) => {
             const features = [
               tData(`${project.key}.features.0`),
               tData(`${project.key}.features.1`),
               tData(`${project.key}.features.2`)
             ];
-            
-            return (
-              <div key={project.id} className="bg-[#11111c]/60 border border-purple-900/30 rounded-2xl overflow-hidden flex flex-col group hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(192,132,252,0.15)] transition-all duration-500">
-                
-                {/* Project Image Box */}
-                <div className="w-full aspect-video relative bg-[#08080c] border-b border-purple-900/30">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#11111c] z-10 opacity-80 pointer-events-none"></div>
-                  
-                  {project.image ? (
-                    <div className="absolute top-4 left-4 right-4 bottom-4 sm:top-6 sm:left-6 sm:right-6 sm:bottom-6 lg:top-8 lg:left-8 lg:right-8 lg:bottom-8 rounded-xl overflow-hidden border border-purple-500/20 shadow-[0_10px_30px_rgba(0,0,0,0.5)] z-0 transform transition-all duration-700 group-hover:scale-105 group-hover:border-purple-500/50">
-                      <div className="absolute inset-0 bg-purple-900/10 mix-blend-overlay z-10"></div>
-                      <img 
-                        src={project.image} 
-                        alt={tData(`${project.key}.title`)}
-                        className="w-full h-full object-cover object-top"
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center text-purple-900/30 z-0">
-                      <svg className="w-20 h-20 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <span className="font-mono text-sm tracking-widest">NO IMAGE AVALIABLE</span>
-                    </div>
-                  )}
-                  
-                  {/* Overlay Action Buttons */}
-                  <div className="absolute inset-0 bg-purple-900/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex items-center justify-center gap-4">
-                    {project.githubLink && (
-                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="bg-[#0b0b14] p-3 rounded-full hover:text-purple-400 hover:scale-110 transition-all shadow-lg" title={t('github')}>
-                        <FaGithub className="w-6 h-6" />
-                      </a>
-                    )}
-                    {project.liveLink !== "#" && (
-                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="bg-[#0b0b14] p-3 rounded-full hover:text-purple-400 hover:scale-110 transition-all shadow-lg" title={t('demo')}>
-                        <FaExternalLinkAlt className="w-5 h-5" />
-                      </a>
-                    )}
-                  </div>
-                </div>
 
-                {/* Project Details */}
-                <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors">
-                    {tData(`${project.key}.title`)}
-                  </h3>
+            return (
+              <RetroCard
+                key={project.id}
+                className="p-5 sm:p-7 overflow-hidden"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                   
-                  <p className="text-slate-300 mb-6 leading-relaxed flex-grow">
-                    {tData(`${project.key}.description`)}
-                  </p>
-                  
-                  <div className="mb-6">
-                    <ul className="space-y-2">
+                  {/* Left: Project Pixel Banner */}
+                  <div className="lg:col-span-6 relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/10] overflow-hidden border border-[#1f2937] bg-black">
+                    <img
+                      src={project.image}
+                      alt={tData(`${project.key}.title`)}
+                      className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                      style={{ imageRendering: 'pixelated' }}
+                    />
+                  </div>
+
+                  {/* Right: Project Details */}
+                  <div className="lg:col-span-6 flex flex-col justify-between h-full">
+                    
+                    {/* Number + Title */}
+                    <div className="flex items-start gap-3.5 mb-3">
+                      <span className="font-pixel text-xl sm:text-2xl text-terminal-green shrink-0 mt-0.5">
+                        {project.num}
+                      </span>
+                      <h3 className="font-mono font-bold text-base sm:text-lg text-white leading-snug">
+                        {tData(`${project.key}.title`)}
+                      </h3>
+                    </div>
+
+                    {/* Description */}
+                    <p className="font-mono text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                      {tData(`${project.key}.description`)}
+                    </p>
+
+                    {/* Bullet Points with Square Bullet */}
+                    <ul className="space-y-1.5 mb-5 font-mono text-xs sm:text-sm text-slate-300">
                       {features.map((feature, i) => (
-                        <li key={i} className="flex items-start text-slate-400 text-sm">
-                          <svg className="w-5 h-5 text-purple-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                          {feature}
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-terminal-green text-xs select-none shrink-0 mt-0.5">■</span>
+                          <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
+
+                    {/* Tech Stack Chips & Links */}
+                    <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[#1f2937]/70">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                        {project.techStack.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-2.5 py-1 text-[11px] font-mono text-slate-300 bg-[#08090c] border border-[#1f2937] hover:border-terminal-green/50 transition-colors"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex items-center gap-3 ml-auto shrink-0">
+                        {project.githubLink && (
+                          <a
+                            href={project.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-slate-400 hover:text-terminal-green transition-colors text-xs flex items-center gap-1 font-mono"
+                            title="GitHub"
+                          >
+                            <FaGithub className="w-4 h-4" />
+                            <span className="hidden sm:inline">Code</span>
+                          </a>
+                        )}
+                        {project.liveLink && project.liveLink !== "#" && (
+                          <a
+                            href={project.liveLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-slate-400 hover:text-terminal-green transition-colors text-xs flex items-center gap-1 font-mono"
+                            title="Live Demo"
+                          >
+                            <FaExternalLinkAlt className="w-3.5 h-3.5" />
+                            <span className="hidden sm:inline">Demo</span>
+                          </a>
+                        )}
+                      </div>
+                    </div>
+
                   </div>
 
-                  {/* Tech Stack Tags */}
-                  <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-purple-900/30">
-                    {project.techStack.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 text-xs font-medium text-purple-300 bg-purple-900/20 border border-purple-800/30 rounded-full">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
                 </div>
-              </div>
+              </RetroCard>
             );
           })}
         </div>
+
       </div>
     </section>
   );

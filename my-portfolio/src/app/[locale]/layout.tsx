@@ -8,8 +8,8 @@ import {notFound} from 'next/navigation';
 import {routing} from '../../i18n/routing';
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Personal Portfolio",
+  title: "HIEU VO // Software Developer",
+  description: "Software Developer Portfolio - Web Applications, Next.js, Node.js & IoT",
 };
 
 export default async function RootLayout({
@@ -29,10 +29,10 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className="antialiased flex flex-col min-h-screen bg-[#08080f] text-slate-200" suppressHydrationWarning>
+      <body className="antialiased flex flex-col min-h-screen bg-[#0b0e14] text-slate-200 font-mono relative selection:bg-terminal-green selection:text-black" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
-          <main className="flex-grow">
+          <main className="flex-grow relative z-10">
             {children}
           </main>
           <Footer />

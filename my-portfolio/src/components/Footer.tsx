@@ -4,42 +4,73 @@ import { useTranslations } from 'next-intl';
 
 export default function Footer() {
   const t = useTranslations('Footer');
-  const tCommon = useTranslations('Common');
 
   return (
-    <footer className="bg-[#05050a] border-t border-purple-900/30 py-10 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/5 via-fuchsia-900/5 to-purple-900/5"></div>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row justify-between items-center">
+    <footer className="bg-[#08090c] border-t border-[#1f2937] py-6 relative z-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono">
         
-        <div className="mb-6 md:mb-0 text-center md:text-left">
-          <p className="text-slate-400 font-light">
-            {t('designed')} <span className="text-purple-400 font-medium">{tCommon('name')}</span>
-          </p>
-          <p className="text-slate-500 text-sm mt-1">{t('copyright')}</p>
+        {/* Copyright info */}
+        <div className="text-slate-400 text-center md:text-left">
+          <span>{t('designed')} Hieu Vo</span>
+          <span className="mx-2 text-slate-600">/</span>
+          <span>{t('copyright')}</span>
         </div>
 
-        <div className="flex space-x-6">
-          <a href="https://github.com/Hieuvo1227" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300 hover:scale-110 transform">
-            <span className="sr-only">GitHub</span>
-            <FaGithub className="w-6 h-6" />
+        {/* Social Links */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-slate-400">
+          <a
+            href="https://github.com/Hieuvo1227"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-terminal-green transition-colors"
+          >
+            <FaGithub className="w-3.5 h-3.5" />
+            <span>GitHub</span>
           </a>
-          <a href="https://www.linkedin.com/in/hiếu-võ-4362a72b8" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300 hover:scale-110 transform">
-            <span className="sr-only">LinkedIn</span>
-            <FaLinkedin className="w-6 h-6" />
+          <span className="text-slate-700 select-none">|</span>
+
+          <a
+            href="https://www.linkedin.com/in/hiếu-võ-4362a72b8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-terminal-green transition-colors"
+          >
+            <FaLinkedin className="w-3.5 h-3.5" />
+            <span>LinkedIn</span>
           </a>
-          <a href="https://www.facebook.com/hieu.vo.havi.2712/?locale=vi_VN" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300 hover:scale-110 transform">
-            <span className="sr-only">Facebook</span>
-            <FaFacebook className="w-6 h-6" />
+          <span className="text-slate-700 select-none">|</span>
+
+          <a
+            href="https://www.facebook.com/hieu.vo.havi.2712/?locale=vi_VN"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-terminal-green transition-colors"
+          >
+            <FaFacebook className="w-3.5 h-3.5" />
+            <span>Facebook</span>
           </a>
-          <a href="https://www.instagram.com/havi.2712/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors duration-300 hover:scale-110 transform">
-            <span className="sr-only">Instagram</span>
-            <FaInstagram className="w-6 h-6" />
+          <span className="text-slate-700 select-none">|</span>
+
+          <a
+            href="https://www.instagram.com/havi.2712/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-terminal-green transition-colors"
+          >
+            <FaInstagram className="w-3.5 h-3.5" />
+            <span>Instagram</span>
           </a>
-          <a href="mailto:hieuvo1227@gmail.com" className="text-slate-400 hover:text-white transition-colors duration-300 hover:scale-110 transform">
-            <span className="sr-only">Email</span>
-            <FaEnvelope className="w-6 h-6" />
+          <span className="text-slate-700 select-none">|</span>
+
+          <a
+            href="mailto:hieuvo1227@gmail.com"
+            className="flex items-center gap-1.5 hover:text-terminal-green transition-colors"
+          >
+            <FaEnvelope className="w-3.5 h-3.5" />
+            <span>Email</span>
           </a>
         </div>
+
       </div>
     </footer>
   );

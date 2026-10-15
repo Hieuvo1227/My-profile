@@ -11,8 +11,8 @@
     "greeting": "Hey there, I'm",
     "role": "Software Developer",
     "tagline": "I build scalable web applications with Next.js, Node.js & IoT.",
-    "viewWork": "View My Work",
-    "contactMe": "Get in Touch"
+    "viewWork": "VIEW MY WORK",
+    "contactMe": "GET IN TOUCH"
   },
   "About": {
     "title": "Who",
@@ -37,7 +37,7 @@
     "title": "My",
     "titleHighlight": "Resume",
     "description": "A snapshot of my experience, education, and technical skills.",
-    "download": "Download CV"
+    "download": "DOWNLOAD CV"
   },
   "Connect": {
     "title": "Get in",
@@ -46,7 +46,7 @@
     "namePlaceholder": "Your Name",
     "emailPlaceholder": "Your Email",
     "messagePlaceholder": "Your Message",
-    "send": "Send Message",
+    "send": "SEND MESSAGE",
     "findMe": "Find me on"
   },
   "Footer": {
@@ -64,7 +64,7 @@
       }
     },
     "edu": {
-      "title": "THỦY TÙNG — Study Abroad Education Platform",
+      "title": "THỦY TÙNG – Study Abroad Education Platform",
       "description": "A high-availability overseas education platform built for heavy concurrent traffic. Features robust session management and multi-layer data caching to ensure a seamless user experience.",
       "features": {
         "0": "Server-Side Rendering (SSR) for top-tier SEO",

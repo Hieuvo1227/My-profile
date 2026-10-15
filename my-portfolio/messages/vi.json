@@ -11,8 +11,8 @@
     "greeting": "Xin chào, tôi là",
     "role": "Software Developer",
     "tagline": "Xây dựng các ứng dụng web mở rộng với Next.js, Node.js & IoT.",
-    "viewWork": "Xem Dự Án",
-    "contactMe": "Liên Hệ Ngay"
+    "viewWork": "XEM DỰ ÁN",
+    "contactMe": "LIÊN HỆ NGAY"
   },
   "About": {
     "title": "Giới thiệu",
@@ -20,7 +20,7 @@
     "greeting": "Xin chào! 👋",
     "im": "Tôi là",
     "bio1": "Tôi là một Kỹ sư phần mềm (Software Developer) với niềm đam mê mãnh liệt trong việc xây dựng các ứng dụng web chất lượng cao, có khả năng mở rộng và các giải pháp phần mềm đổi mới. Tôi luôn thích không ngừng học hỏi và áp dụng kiến thức kỹ thuật để giải quyết các vấn đề thực tế.",
-    "bio2": "Tôi đã tích cực tham gia và dẫn dắt một số dự án phát triển, bao gồm hệ thống quản lý truy cập thông minh và nền tảng giáo dục hiện đại.",
+    "bio2": "Tôi đã tích cực tham gia và dẫn dắt một số dự án phát triển, bao gồm hệ thống quản lý truy cập thông minh và nền tảng giáo dục hiện đại, luôn chú trọng đến kiến trúc sạch và trải nghiệm người dùng tuyệt vời.",
     "skillset": "Kỹ năng",
     "skillsetHighlight": "Chuyên môn",
     "tools": "Công cụ",
@@ -29,7 +29,7 @@
   "Projects": {
     "title": "Các dự án",
     "titleHighlight": "Gần đây",
-    "description": "Dưới đây là một số dự án tiêu biểu mà tôi đã thực hiện.",
+    "description": "Dưới đây là một số dự án tiêu biểu mà tôi đã thực hiện và bàn giao.",
     "github": "Mã nguồn",
     "demo": "Bản thử nghiệm"
   },
@@ -37,7 +37,7 @@
     "title": "Hồ sơ",
     "titleHighlight": "Cá nhân",
     "description": "Tóm tắt về kinh nghiệm làm việc, học vấn và kỹ năng chuyên môn của tôi.",
-    "download": "Tải CV"
+    "download": "TẢI CV"
   },
   "Connect": {
     "title": "Hãy giữ",
@@ -46,11 +46,11 @@
     "namePlaceholder": "Tên của bạn",
     "emailPlaceholder": "Email của bạn",
     "messagePlaceholder": "Tin nhắn",
-    "send": "Gửi tin nhắn",
+    "send": "GỬI TIN NHẮN",
     "findMe": "Kết nối với tôi trên"
   },
   "Footer": {
-    "designed": "Thiết kế và Phát triển bởi",
+    "designed": "Thiết kế và phát triển bởi",
     "copyright": "Bản quyền © 2026"
   },
   "ProjectData": {
@@ -64,7 +64,7 @@
       }
     },
     "edu": {
-      "title": "THỦY TÙNG - Nền tảng Giáo dục",
+      "title": "THỦY TÙNG – Nền tảng Giáo dục Du học",
       "description": "Nền tảng giáo dục du học có tính sẵn sàng cao. Xây dựng kiến trúc quản lý phiên bản và bộ nhớ đệm dữ liệu mạnh mẽ để xử lý lượng truy cập lớn một cách mượt mà.",
       "features": {
         "0": "Server-Side Rendering (SSR) tối ưu SEO",
@@ -74,11 +74,11 @@
     },
     "videoai": {
       "title": "Hệ thống Cắt Video bằng AI",
-      "description": "Hệ thống tự động cắt và chỉnh sửa video sử dụng trí tuệ nhân tạo.",
+      "description": "Hệ thống tự động cắt và chỉnh sửa video sử dụng trí tuệ nhân tạo với sự can thiệp tối thiểu của con người.",
       "features": {
-        "0": "Cắt video tự động",
-        "1": "Phát hiện cảnh quay bằng AI",
-        "2": "Xử lý video nhanh chóng bằng FFmpeg"
+        "0": "Cắt video tự động điều khiển bởi AI",
+        "1": "Phát hiện cảnh quay thông minh",
+        "2": "Xử lý video tốc độ cao bằng FFmpeg"
       }
     }
   }
