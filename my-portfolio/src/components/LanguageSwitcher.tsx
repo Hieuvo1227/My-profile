@@ -1,7 +1,7 @@
 "use client";
 import React, { useTransition } from 'react';
-import {usePathname, useRouter} from '../i18n/routing';
-import {useLocale} from 'next-intl';
+import { usePathname, useRouter } from '../i18n/routing';
+import { useLocale } from 'next-intl';
 
 export default function LanguageSwitcher() {
   const locale = useLocale();
@@ -9,22 +9,30 @@ export default function LanguageSwitcher() {
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
-  const toggleLanguage = () => {
-    const nextLocale = locale === 'en' ? 'vi' : 'en';
+  const switchLocale = (targetLocale: string) => {
+    if (locale === targetLocale || isPending) return;
     startTransition(() => {
-      router.replace(pathname, {locale: nextLocale});
+      router.replace(pathname, { locale: targetLocale });
     });
   };
 
   return (
-    <button 
-      onClick={toggleLanguage}
-      disabled={isPending}
-      className="ml-4 px-3 py-1.5 rounded-md border border-purple-500/30 hover:border-purple-500/80 hover:bg-purple-600/10 text-slate-300 transition-all duration-300 font-medium text-sm flex items-center gap-1.5"
-    >
-      <span className={locale === 'en' ? 'text-purple-400 font-bold' : 'opacity-70'}>EN</span>
-      <span className="text-slate-600 font-light">|</span>
-      <span className={locale === 'vi' ? 'text-purple-400 font-bold' : 'opacity-70'}>VI</span>
-    </button>
+    <div className="flex items-center gap-1.5 font-mono text-sm tracking-wider">
+      <button 
+        onClick={() => switchLocale('en')}
+        disabled={isPending}
+        className={`transition-colors duration-200 ${locale === 'en' ? 'text-terminal-green font-bold' : 'text-slate-400 hover:text-white'}`}
+      >
+        EN
+      </button>
+      <span className="text-slate-600">|</span>
+      <button 
+        onClick={() => switchLocale('vi')}
+        disabled={isPending}
+        className={`transition-colors duration-200 ${locale === 'vi' ? 'text-terminal-green font-bold' : 'text-slate-400 hover:text-white'}`}
+      >
+        VI
+      </button>
+    </div>
   );
 }
